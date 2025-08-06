@@ -1,0 +1,1 @@
+['client_id', 'avg_temperature', 'avg_humidity', 'temp_humid_interaction', 'day_counter', 'consumption_lag_1', 'consumption_lag_2', 'consumption_lag_3', 'consumption_lag_4', 'consumption_lag_7', 'consumption_lag_15', 'tipo_feriado', 'day_of_week_name', 'month', 'rolling_mean_3', 'rolling_std_3', 'rolling_mean_7', 'rolling_std_7', 'diff_lag_1']

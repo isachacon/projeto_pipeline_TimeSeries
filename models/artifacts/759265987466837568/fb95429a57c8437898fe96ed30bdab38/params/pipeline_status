@@ -1,0 +1,1 @@
+failed_critical_error: module 'pandas.core.common' has no attribute 'SettingWithCopyWarning'
