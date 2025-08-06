@@ -1,5 +1,5 @@
 **Projeto de Previsão de Consumo de Energia ⚡**
-
+----------------------------------------------
 Este projeto implementa uma pipeline de Machine Learning para previsão de consumo de energia, utilizando dados históricos de consumo, clientes e clima. A pipeline é modularizada em scripts Python e utiliza DuckDB para processamento de dados e MLflow para rastreamento de experimentos e gerenciamento de modelos.
 
 **Estrutura de Diretórios 📁**
@@ -46,7 +46,7 @@ Siga os passos abaixo para configurar o ambiente e executar a pipeline.
 
 
 **Configuração Inicial (Uma Vez)**
-
+---------------------------------
 No Windows (usando PowerShell ou Git Bash)
 
 1. Instale o Git para Windows (inclui Git Bash):
@@ -110,8 +110,49 @@ Siga as instruções na tela para adicionar `pyenv` ao seu `~/.bashrc` (ou `~/.z
 Verifique se foi instalado: `pyenv versions` (deve listar `3.11.9`).
 
 
-**Execução da Pipeline**
+**Resolução de Conflitos de Dependência (ao usar o Windows)**
+--------------------------------------------
+Ao tentar instalar as dependências do projeto, surgiram conflitos de compatibilidade entre os pacotes, mesmo após a criação de um ambiente virtual padrão. A causa provável foi um cache de pacotes corrompido ou desatualizado e versões incompatíveis de ferramentas de gerenciamento.
 
+Ocorrendo estes conflitos, a solução foi obtida através destes passos:
+
+- Passo 1: Excluir o Ambiente Virtual Anterior (se existir)
+
+Para evitar qualquer conflito, remova o ambiente virtual anterior (se houver um). Certifique-se de que não há informações importantes que você queira manter nele.
+
+        conda env remove --name [nome_do_ambiente_antigo]
+
+- Passo 2: Criar um Novo Ambiente com Conda
+
+Crie um novo ambiente virtual usando o Conda para garantir o isolamento total das dependências do sistema.
+
+                conda create --name meu-ambiente python=3.9 -y
+
+- Passo 3: Ativar o Novo Ambiente
+
+Ative o ambiente recém-criado para que as próximas instalações ocorram dentro dele.
+
+                conda activate meu-ambiente
+
+- Passo 4: Atualizar o `pip`
+
+Dentro do novo ambiente, atualize o `pip` para a versão mais recente. Isso previne que versões antigas ou corrompidas sejam reutilizadas.
+
+                python -m pip install --upgrade pip
+
+- Passo 5: Limpar cache
+
+                pip cache purge
+
+- Passo 6: Instalar as Dependências do Projeto
+
+Agora, instale as dependências a partir do arquivo `requirements.txt`. Como o ambiente está limpo e o `pip` atualizado, a instalação deve ocorrer sem problemas.
+
+                pip install -r requirements.txt
+
+
+**Execução da Pipeline**
+-------------------------------
 **Passo a Passo para Ambos os Sistemas**
 
 1. Navegue até o diretório raiz do projeto:
